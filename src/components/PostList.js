@@ -10,6 +10,7 @@ const PostList = ({ fetchPosts }) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return { state };
 };
 
