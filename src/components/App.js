@@ -3,9 +3,15 @@ import PostList from './PostList';
 
 const App = () => {
   return (
-    <div className="ui container">
-      <PostList />
-    </div>
+    <section className="section">
+      <div className="section-center">
+        <div className="title">
+          <h4>Blog</h4>
+          <div className="underline"></div>
+        </div>
+        <PostList />
+      </div>
+    </section>
   );
 };
 
