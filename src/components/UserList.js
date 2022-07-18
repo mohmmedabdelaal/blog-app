@@ -1,12 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
-function UserList({ fetchUser, userId, user }) {
-  console.log(user);
-  useEffect(() => {
-    fetchUser(userId);
-    // eslint-disable-next-line
-  }, []);
+
+function UserList({ user }) {
   if (!user) {
     return <div className="loading">Loading...</div>;
   }
@@ -24,4 +19,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchUser })(UserList);
+export default connect(mapStateToProps)(UserList);

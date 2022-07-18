@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import { fetchUserAndPosts } from '../actions';
 import UserList from './UserList';
 
-const PostList = ({ fetchPosts, posts }) => {
+const PostList = ({ fetchUserAndPosts, posts }) => {
   const [readMore, setReadMore] = useState(false);
 
   console.log(posts);
   useEffect(() => {
-    fetchPosts();
+    fetchUserAndPosts();
     // eslint-disable-next-line
   }, []);
 
@@ -22,7 +22,7 @@ const PostList = ({ fetchPosts, posts }) => {
               <div className="tour-info">
                 <h3>{title}</h3>
               </div>
-              <UserList userId={userId}></UserList>
+              <UserList userId={userId} />
               <p>
                 {readMore ? body : `${body.substring(0, 120)}...`}
                 <button onClick={() => setReadMore(!readMore)}>
@@ -38,8 +38,7 @@ const PostList = ({ fetchPosts, posts }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return { posts: state.posts };
 };
 
-export default connect(mapStateToProps, { fetchPosts })(PostList);
+export default connect(mapStateToProps, { fetchUserAndPosts })(PostList);
